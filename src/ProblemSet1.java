@@ -12,6 +12,9 @@
  * questions, and fix your mistakes. It's the only way to get good at programming.
  */
 
+import java.text.NumberFormat;
+import java.lang.Math;
+
 public class ProblemSet1 {
 
     public static void main(String[] args) {
@@ -26,7 +29,9 @@ public class ProblemSet1 {
         final double width = 8.5;
         final double inchToMm = 25.4;
         double area = length*width*inchToMm*inchToMm;
-        System.out.println(\n area + " square millimeters.");
+
+
+        System.out.printf("\n%,.2f%s\n", area, " square millimeters.");
 
 
 
@@ -36,6 +41,10 @@ public class ProblemSet1 {
          * What is the perimeter (in centimeters) of an 8.5-by-11-inch sheet of paper?
          */
 
+         final double inchToCm = 2.54;
+         double perimeter = (length+length+width+width)*inchToCm;
+
+         System.out.printf("\n%,.2f%s\n", perimeter, " centimeters.");
 
 
         /*
@@ -46,6 +55,10 @@ public class ProblemSet1 {
          */
 
 
+         double hypotenuse = Math.hypot(length, width);
+         System.out.printf("\n%,.2f%s\n", hypotenuse, " inches.");
+
+
 
         /*
          * Exercise 4.
@@ -54,16 +67,30 @@ public class ProblemSet1 {
          * what marking period grade will I get?
          */
 
-        int homework1 = 88;
-        int homework2 = 91;
-        int homework3 = 0;
-        int quiz1 = 84;
-        int quiz2 = 89;
-        int quiz3 = 93;
-        int test1 = 74;
-        int test2 = 87;
-        int test3 = 82;
 
+         final double weightHW = .15;
+         final double weightQuiz = .35;
+         final double weightTest = .5;
+
+         int homework1 = 88;
+         int homework2 = 91;
+         int homework3 = 0;
+         int quiz1 = 84;
+         int quiz2 = 89;
+         int quiz3 = 93;
+         int test1 = 74;
+         int test2 = 87;
+         int test3 = 82;
+
+         double finalHW = (homework1+homework2+homework3)/3*weightHW;
+         double finalQuiz = (quiz1+quiz2+quiz3)/3*weightQuiz;
+         double finalTest = (test1+test2+test3)/3*weightTest;
+
+         double finalGrade = finalHW+finalQuiz+finalTest;
+
+         System.out.printf("\n%,.2f%s\n", finalGrade, "%.");
+
+         //FIXROUNDINGERRORS
 
 
         /*
@@ -73,7 +100,21 @@ public class ProblemSet1 {
          * will I make this week?
          */
 
+         final double hourlyWage = 12.50;
 
+         final double hoursMonday = 7.5;
+         final double hoursTuesday = 8;
+         final double hoursWednesday = 10.5;
+         final double hoursThursday = 9.5;
+         final double hoursFriday = 6;
+         final double hoursSaturday = 11.5;
+         final double hoursSunday = 0;
+
+         final double finalPay = hourlyWage*(hoursMonday+hoursTuesday+hoursWednesday+hoursThursday+hoursSaturday+hoursSunday);
+
+         System.out.printf("\n%,.2f%s\n", finalPay, ".");
+
+         //FIX ROUNDING ERRORS
 
         /*
          * Exercise 6.
@@ -81,6 +122,18 @@ public class ProblemSet1 {
          * What is my take-home pay each check?
          */
 
+         final double salary = 117000;
+         final double payPeriod = 24;
+
+         final double fedTax = .24;
+         final double stateTax = .0637;
+         final double saving401k = .07;
+
+         final double takeHomePay = salary*((1-(fedTax+stateTax+saving401k))/payPeriod);
+
+         System.out.printf("\n%,.2f%s\n", takeHomePay, ".");
+
+         //FIX ROUNDING ERRORS
 
 
         /*
