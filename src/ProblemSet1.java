@@ -129,11 +129,13 @@ public class ProblemSet1 {
          final double stateTax = .0637;
          final double saving401k = .07;
 
-         final double takeHomePay = salary*((1-(fedTax+stateTax+saving401k))/payPeriod);
+         final double payPost401k = salary*(1-saving401k);
+         final double payPostStateTax = payPost401k*(1-fedTax);
+         final double takeHomePay = payPostStateTax*((1-(stateTax))/payPeriod);
 
          System.out.printf("\n%,.2f%s\n", takeHomePay, ".");
 
-         //FIX ROUNDING ERRORS
+         //FIX DOLLAR SIGN
 
 
         /*
@@ -142,6 +144,18 @@ public class ProblemSet1 {
          * I am planning a class trip next month. How many buses do I need, and how many
          * people will be on the last bus?
          */
+
+         final double studentCount = 273;
+         final double teacherCount = 28;
+         final double busCapacity = 54;
+
+         final double totalPeople = studentCount+teacherCount;
+
+         final double busesNeeded = Math.ceil(totalPeople/busCapacity);
+         final double peopleLastBus = totalPeople%busCapacity;
+
+         System.out.printf("\n%,.0f%s\n", busesNeeded, " buses are needed, with ", "\n%,.0f%s\n", peopleLastBus, " passengers on the last bus.");
+
 
 
 
