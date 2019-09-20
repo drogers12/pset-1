@@ -114,7 +114,7 @@ public class ProblemSet1 {
          final double hoursSaturday = 11.5;
          final double hoursSunday = 0;
 
-         final double finalPay = hourlyWage*(hoursMonday+hoursTuesday+hoursWednesday+hoursThursday+hoursSaturday+hoursSunday);
+         final double finalPay = hourlyWage*(hoursMonday+hoursTuesday+hoursWednesday+hoursThursday+hoursFriday+hoursSaturday+hoursSunday);
 
          System.out.printf("\n%,.2f%s\n", finalPay, ".");
 
@@ -125,6 +125,8 @@ public class ProblemSet1 {
          *
          * What is my take-home pay each check?
          */
+
+         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
 
          final double salary = 117000;
          final double payPeriod = 24;
@@ -137,9 +139,8 @@ public class ProblemSet1 {
          final double payPostStateTax = payPost401k*(1-fedTax);
          final double takeHomePay = payPostStateTax*((1-(stateTax))/payPeriod);
 
-         System.out.printf("\n%,.2f%s\n", takeHomePay, ".");
+         System.out.println("\n" + currencyFormat.format(takeHomePay) + ".");
 
-         //FIX DOLLAR SIGN
 
 
         /*
@@ -149,16 +150,16 @@ public class ProblemSet1 {
          * people will be on the last bus?
          */
 
-         final double studentCount = 273;
-         final double teacherCount = 28;
-         final double busCapacity = 54;
+         final int studentCount = 273;
+         final int teacherCount = 28;
+         final int busCapacity = 54;
 
-         final double totalPeople = studentCount+teacherCount;
+         final int totalPeople = studentCount+teacherCount;
 
-         final double busesNeeded = Math.ceil(totalPeople/busCapacity);
-         final double peopleLastBus = totalPeople%busCapacity;
+         int busesNeeded = (totalPeople/busCapacity)+1;
+         int peopleLastBus = totalPeople%busCapacity;
 
-         System.out.printf("\n%,.0f%s\n", busesNeeded, " buses are needed, with ", "\n%,.0f%s\n", peopleLastBus, " passengers on the last bus.");
+         System.out.printf("\n" + busesNeeded + " buses are needed, with " + peopleLastBus + " passengers on the last bus.\n");
 
 
 
@@ -169,6 +170,13 @@ public class ProblemSet1 {
          * What is the surface area of a standard Cornhole board?
          */
 
+         final double boardLength = 48;
+         final double boardWidth = 24;
+         final double holeDiameter = 6;
+
+         final double surfaceArea = (boardLength*boardWidth)-(((holeDiameter/2)*(holeDiameter/2))*Math.PI);
+
+         System.out.printf("\n%,.2f%s\n", surfaceArea, " square inches.");
 
 
         /*
@@ -176,6 +184,20 @@ public class ProblemSet1 {
          *
          * Are the years 2020, 2100, and 2400 leap years?
          */
+
+         int currentYear = 2020;
+         boolean leapYear = (currentYear%4)<(currentYear%100) || (currentYear%400==0);
+         System.out.println("\n" + currentYear + " is a leap year..." + leapYear + ".");
+
+         currentYear = 2100;
+         leapYear = (currentYear%4)<(currentYear%100) || (currentYear%400==0);
+         System.out.println(currentYear + " is a leap year..." + leapYear + ".");
+
+         currentYear = 2400;
+         leapYear = (currentYear%4)<(currentYear%100) || (currentYear%400==0);
+         System.out.println(currentYear + " is a leap year..." + leapYear + ".");
+
+
 
 
 
@@ -185,6 +207,11 @@ public class ProblemSet1 {
          * What is the wind chill?
          */
 
+         final double temp = 38;
+         final double windSpeed = 14;
+         final double windChill = 35.74 + (.6215 * temp) + ((.4275 * temp - 35.75) * (Math.pow(windSpeed, .16)));
+
+         System.out.printf("\n%,.1f%s\n", windChill, " degrees.");
 
 
     }
