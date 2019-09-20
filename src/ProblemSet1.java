@@ -82,9 +82,13 @@ public class ProblemSet1 {
          int test2 = 87;
          int test3 = 82;
 
-         double finalHW = (homework1+homework2+homework3)/3*weightHW;
-         double finalQuiz = (quiz1+quiz2+quiz3)/3*weightQuiz;
-         double finalTest = (test1+test2+test3)/3*weightTest;
+         double totalHW = homework1+homework2+homework3;
+         double totalQuiz = quiz1+quiz2+quiz3;
+         double totalTest = test1+test2+test3;
+
+         double finalHW = (totalHW)/3*weightHW;
+         double finalQuiz = (totalQuiz)/3*weightQuiz;
+         double finalTest = (totalTest)/3*weightTest;
 
          double finalGrade = finalHW+finalQuiz+finalTest;
 
